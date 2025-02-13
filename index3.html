@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUV MY SIS🙄</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, red, yellow, green, blue, purple);
+            background-size: 400% 400%;
+            animation: gradientBG 10s infinite linear;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .sister-photo {
+            width: 300px;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: pink;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: lightcoral;
+        }
+
+        .poop {
+            position: absolute;
+            width: 50px;
+            top: -50px;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-50px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FRFRF</h1>
+        <img src="https://i.postimg.cc/SNrwVxRH/photo-2025-02-13-23-46-13.jpg" alt="Фото сестры" class="sister-photo">
+        <button id="fartButton">Нажми меня</button>
+    </div>
+
+    <audio id="fartSound" src="https://www.dropbox.com/scl/fi/ms3z83d1e2vzd0yn6h3uj/pukane-4.mp3?rlkey=sux3ttp2iez540v0qk9gu2gac&st=qihu0w3m&dl=1"></audio>
+
+    <script>
+        document.getElementById("fartButton").addEventListener("click", function() {
+            let fartSound = document.getElementById("fartSound");
+            fartSound.play();
+        });
+
+        function createPoop() {
+            let poop = document.createElement("img");
+            poop.src = "https://i.postimg.cc/QCjfWcQC/3a29593307dd622d18af4819c29ee204.jpg"; // Картинка какашки
+            poop.className = "poop";
+            poop.style.left = Math.random() * window.innerWidth + "px";
+            poop.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+            document.body.appendChild(poop);
+            setTimeout(() => { poop.remove(); }, 5000);
+        }
+
+        setInterval(createPoop, 500);
+    </script>
+</body>
+</html>
